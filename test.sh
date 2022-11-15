@@ -4,5 +4,7 @@ rm -rf .test
 git clone .git .test
 cd .test
 
-DOCKER_BUILDKIT=1 docker build -f a/Dockerfile .
-DOCKER_BUILDKIT=1 docker build -f b/Dockerfile .
+mkdir foo
+rsync a/Dockerfile foo/
+rsync b/Dockerfile foo/
+cat foo/Dockerfile
